@@ -1,0 +1,673 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>指导教师</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1f58cdc6-063c-421d-9259-a3f9c09c719a" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/WechatIMG691.jpeg"/></div><h1 class="page-title">指导教师</h1></header><div class="page-body"><h3 id="44cbb1f9-6f32-4854-b109-91bbc54b926e" class="">简介</h3><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="8c1b2606-0e94-45d8-a512-838b98ffa281"><div style="font-size:1.5em"><span class="icon">🖋️</span></div><div style="width:100%">毕业于日本早稻田大学，曾任早稻田大学助手及客员讲师，现任大连理工大学教授，学术兼职日本模糊系统研究所主任研究员、国际期刊IJIMS副主编。主要从事“计算智能算法及工程领域应用”研究工作，针对信息、工业、医疗、管理等领域中普遍存在的优化问题规模庞大、结构复杂、约束耦合、不确定性等特征，形成了基于图论的模型建模方法、面向图模型特征的计算智能算法设计、面向实际行业应用的算法实践等系列成果。相关工作被引用年均超过300余次，最高单篇引用超过800次。主持及参与国家自然科学基金项目、国家重点研发计划等重大项目。
+<figure id="d06d7096-c614-401b-ab3b-83fd58186c15" class="image" style="text-align:left"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/WechatIMG1174.jpeg"><img style="width:432px" src="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/WechatIMG1174.jpeg"/></a><figcaption>Figure: 工作被应用次数（截止：2020/09）</figcaption></figure></div></figure><p id="18da8230-b43c-44d2-beed-74ba2ee2133c" class="">
+</p><figure id="afd0323b-de43-4780-8ca8-5d5cba8073bd" class="block-color-orange_background link-to-page"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E8%82%B2%E7%BB%8F%E5%8E%86%20afd0323bde4347808ca85d5cba8073bd.html">教育经历</a></figure><div id="5caabdc9-ec50-48d5-bf2e-c20c10f6b4d3" class="collection-content"><h4 class="collection-title">教育经历</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M10.8889,5.5 L3.11111,5.5 L3.11111,7.05556 L10.8889,7.05556 L10.8889,5.5 Z M12.4444,1.05556 L11.6667,1.05556 L11.6667,0 L10.1111,0 L10.1111,1.05556 L3.88889,1.05556 L3.88889,0 L2.33333,0 L2.33333,1.05556 L1.55556,1.05556 C0.692222,1.05556 0.00777777,1.75556 0.00777777,2.61111 L0,12.5 C0,13.3556 0.692222,14 1.55556,14 L12.4444,14 C13.3,14 14,13.3556 14,12.5 L14,2.61111 C14,1.75556 13.3,1.05556 12.4444,1.05556 Z M12.4444,12.5 L1.55556,12.5 L1.55556,3.94444 L12.4444,3.94444 L12.4444,12.5 Z M8.55556,8.61111 L3.11111,8.61111 L3.11111,10.1667 L8.55556,10.1667 L8.55556,8.61111 Z"></path></svg></span>开始时间</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M10.8889,5.5 L3.11111,5.5 L3.11111,7.05556 L10.8889,7.05556 L10.8889,5.5 Z M12.4444,1.05556 L11.6667,1.05556 L11.6667,0 L10.1111,0 L10.1111,1.05556 L3.88889,1.05556 L3.88889,0 L2.33333,0 L2.33333,1.05556 L1.55556,1.05556 C0.692222,1.05556 0.00777777,1.75556 0.00777777,2.61111 L0,12.5 C0,13.3556 0.692222,14 1.55556,14 L12.4444,14 C13.3,14 14,13.3556 14,12.5 L14,2.61111 C14,1.75556 13.3,1.05556 12.4444,1.05556 Z M12.4444,12.5 L1.55556,12.5 L1.55556,3.94444 L12.4444,3.94444 L12.4444,12.5 Z M8.55556,8.61111 L3.11111,8.61111 L3.11111,10.1667 L8.55556,10.1667 L8.55556,8.61111 Z"></path></svg></span>结束时间</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>学校</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>专业</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>学位</th></tr></thead><tbody><tr id="590a912f-3abc-4f6c-8bd3-c6e72f6bf077"><td class="cell-W&lt;?Z"><time>@2005/04/01</time></td><td class="cell-B?`B"><time>@2008/03/15</time></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E8%82%B2%E7%BB%8F%E5%8E%86%20afd0323bde4347808ca85d5cba8073bd/%E6%97%A9%E7%A8%BB%E7%94%B0%E5%A4%A7%E5%AD%A6%20590a912f3abc4f6c8bd3c6e72f6bf077.html">早稻田大学</a></td><td class="cell-[NNW">信息生产与系统工程</td><td class="cell-tLzp">博士</td></tr><tr id="a31a43de-5e3a-4c75-90a1-1ec064bde125"><td class="cell-W&lt;?Z"><time>@2003/04/01</time></td><td class="cell-B?`B"><time>@2005/03/15</time></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E8%82%B2%E7%BB%8F%E5%8E%86%20afd0323bde4347808ca85d5cba8073bd/%E6%97%A9%E7%A8%BB%E7%94%B0%E5%A4%A7%E5%AD%A6%20a31a43de5e3a4c7590a11ec064bde125.html">早稻田大学</a></td><td class="cell-[NNW">信息生产与系统工程</td><td class="cell-tLzp">硕士</td></tr><tr id="7c95e317-f759-489b-9585-1bc400989bea"><td class="cell-W&lt;?Z"><time>@2001/04/01</time></td><td class="cell-B?`B"><time>@2003/03/15</time></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E8%82%B2%E7%BB%8F%E5%8E%86%20afd0323bde4347808ca85d5cba8073bd/%E8%B6%B3%E5%88%A9%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6%207c95e317f759489b95851bc400989bea.html">足利工业大学</a></td><td class="cell-[NNW">经营信息工学</td><td class="cell-tLzp"></td></tr><tr id="b23601dd-7df2-4bfe-84e1-f4925f745dc5"><td class="cell-W&lt;?Z"><time>@1999/11/01</time></td><td class="cell-B?`B"><time>@2001/03/15</time></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E8%82%B2%E7%BB%8F%E5%8E%86%20afd0323bde4347808ca85d5cba8073bd/%E5%B8%82%E5%B7%9D%E6%97%A5%E6%9C%AC%E8%AF%AD%E4%B8%93%E4%BF%AE%E5%AD%A6%E9%99%A2%20b23601dd7df24bfe84e1f4925f745dc5.html">市川日本语专修学院</a></td><td class="cell-[NNW"></td><td class="cell-tLzp"></td></tr></tbody></table></div><figure id="c0f7a996-544f-4a45-a7f8-ffd5bf9a9026" class="block-color-teal_background link-to-page"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E5%B7%A5%E4%BD%9C%E7%BB%8F%E5%8E%86%20c0f7a996544f4a45a7f8ffd5bf9a9026.html">工作经历</a></figure><div id="a0338547-4222-4d50-b6c4-da3768239e74" class="collection-content"><h4 class="collection-title">工作经历</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M10.8889,5.5 L3.11111,5.5 L3.11111,7.05556 L10.8889,7.05556 L10.8889,5.5 Z M12.4444,1.05556 L11.6667,1.05556 L11.6667,0 L10.1111,0 L10.1111,1.05556 L3.88889,1.05556 L3.88889,0 L2.33333,0 L2.33333,1.05556 L1.55556,1.05556 C0.692222,1.05556 0.00777777,1.75556 0.00777777,2.61111 L0,12.5 C0,13.3556 0.692222,14 1.55556,14 L12.4444,14 C13.3,14 14,13.3556 14,12.5 L14,2.61111 C14,1.75556 13.3,1.05556 12.4444,1.05556 Z M12.4444,12.5 L1.55556,12.5 L1.55556,3.94444 L12.4444,3.94444 L12.4444,12.5 Z M8.55556,8.61111 L3.11111,8.61111 L3.11111,10.1667 L8.55556,10.1667 L8.55556,8.61111 Z"></path></svg></span>开始时间</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M10.8889,5.5 L3.11111,5.5 L3.11111,7.05556 L10.8889,7.05556 L10.8889,5.5 Z M12.4444,1.05556 L11.6667,1.05556 L11.6667,0 L10.1111,0 L10.1111,1.05556 L3.88889,1.05556 L3.88889,0 L2.33333,0 L2.33333,1.05556 L1.55556,1.05556 C0.692222,1.05556 0.00777777,1.75556 0.00777777,2.61111 L0,12.5 C0,13.3556 0.692222,14 1.55556,14 L12.4444,14 C13.3,14 14,13.3556 14,12.5 L14,2.61111 C14,1.75556 13.3,1.05556 12.4444,1.05556 Z M12.4444,12.5 L1.55556,12.5 L1.55556,3.94444 L12.4444,3.94444 L12.4444,12.5 Z M8.55556,8.61111 L3.11111,8.61111 L3.11111,10.1667 L8.55556,10.1667 L8.55556,8.61111 Z"></path></svg></span>结束时间</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>工作单位</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>部门</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>职务</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>类别</th></tr></thead><tbody><tr id="363ae40f-d80c-436d-94c4-6dbc39d78167"><td class="cell-pS;&gt;"><time>@2018/05/01</time></td><td class="cell-@__q"></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E5%B7%A5%E4%BD%9C%E7%BB%8F%E5%8E%86%20c0f7a996544f4a45a7f8ffd5bf9a9026/%E5%A4%A7%E8%BF%9E%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6%20363ae40fd80c436d94c46dbc39d78167.html">大连理工大学</a></td><td class="cell-KJ&lt;M">国际信息与软件学院</td><td class="cell-f_MR">副院长</td><td class="cell-{hYk"><span class="selected-value select-value-color-gray">专职</span></td></tr><tr id="99c0f94c-84f8-41f9-bf8c-4fe9ce3cdfa3"><td class="cell-pS;&gt;"><time>@2008/04/01</time></td><td class="cell-@__q"><time>@2010/03/01</time></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E5%B7%A5%E4%BD%9C%E7%BB%8F%E5%8E%86%20c0f7a996544f4a45a7f8ffd5bf9a9026/%E6%97%A9%E7%A8%BB%E7%94%B0%E5%A4%A7%E5%AD%A6%2099c0f94c84f841f9bf8c4fe9ce3cdfa3.html">早稻田大学</a></td><td class="cell-KJ&lt;M">信息生产与系统研究中心</td><td class="cell-f_MR">客员讲师</td><td class="cell-{hYk"><span class="selected-value select-value-color-gray">专职</span></td></tr><tr id="d91a55bd-0650-4650-967f-a1e2f4b9fd49"><td class="cell-pS;&gt;"><time>@2010/03/01</time></td><td class="cell-@__q"><time>@2017/12/01</time></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E5%B7%A5%E4%BD%9C%E7%BB%8F%E5%8E%86%20c0f7a996544f4a45a7f8ffd5bf9a9026/%E5%A4%A7%E8%BF%9E%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6%20d91a55bd06504650967fa1e2f4b9fd49.html">大连理工大学</a></td><td class="cell-KJ&lt;M">国家示范性软件学院</td><td class="cell-f_MR">副教授</td><td class="cell-{hYk"><span class="selected-value select-value-color-gray">专职</span></td></tr><tr id="e92cf908-2a81-457f-8d84-4377ff39e140"><td class="cell-pS;&gt;"><time>@2017/12/01</time></td><td class="cell-@__q"></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E5%B7%A5%E4%BD%9C%E7%BB%8F%E5%8E%86%20c0f7a996544f4a45a7f8ffd5bf9a9026/%E5%A4%A7%E8%BF%9E%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6%20e92cf9082a81457f8d844377ff39e140.html">大连理工大学</a></td><td class="cell-KJ&lt;M">国际信息与软件学院</td><td class="cell-f_MR">教授</td><td class="cell-{hYk"><span class="selected-value select-value-color-gray">专职</span></td></tr><tr id="1ec37380-226e-40d0-9926-bd755f0be217"><td class="cell-pS;&gt;"><time>@2022/09/01</time></td><td class="cell-@__q"></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E5%B7%A5%E4%BD%9C%E7%BB%8F%E5%8E%86%20c0f7a996544f4a45a7f8ffd5bf9a9026/I%20J%20of%20Operations%20Research%201ec37380226e40d09926bd755f0be217.html">I. J. of Operations Research</a></td><td class="cell-KJ&lt;M"></td><td class="cell-f_MR">地区编辑</td><td class="cell-{hYk"><span class="selected-value select-value-color-red">兼职</span></td></tr><tr id="5914f466-c94d-4f34-8065-89bdba99bece"><td class="cell-pS;&gt;"><time>@2006/04/01</time></td><td class="cell-@__q"><time>@2008/03/01</time></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E5%B7%A5%E4%BD%9C%E7%BB%8F%E5%8E%86%20c0f7a996544f4a45a7f8ffd5bf9a9026/%E6%97%A9%E7%A8%BB%E7%94%B0%E5%A4%A7%E5%AD%A6%205914f466c94d4f34806589bdba99bece.html">早稻田大学</a></td><td class="cell-KJ&lt;M">信息生产与系统研究中心</td><td class="cell-f_MR">研究助手</td><td class="cell-{hYk"><span class="selected-value select-value-color-red">兼职</span></td></tr><tr id="686c1988-42b4-466d-bcb2-c1b88d9dda9d"><td class="cell-pS;&gt;"><time>@2010/03/01</time></td><td class="cell-@__q"></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E5%B7%A5%E4%BD%9C%E7%BB%8F%E5%8E%86%20c0f7a996544f4a45a7f8ffd5bf9a9026/%E6%97%A5%E6%9C%AC%E6%A8%A1%E7%B3%8A%E7%B3%BB%E7%BB%9F%E7%A0%94%E7%A9%B6%E6%89%80%20686c198842b4466dbcb2c1b88d9dda9d.html">日本模糊系统研究所</a></td><td class="cell-KJ&lt;M"></td><td class="cell-f_MR">主任研究员</td><td class="cell-{hYk"><span class="selected-value select-value-color-red">兼职</span></td></tr><tr id="ab762913-b504-4aaa-8f17-adab7f134889"><td class="cell-pS;&gt;"><time>@2021/01/01</time></td><td class="cell-@__q"></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E5%B7%A5%E4%BD%9C%E7%BB%8F%E5%8E%86%20c0f7a996544f4a45a7f8ffd5bf9a9026/%E7%AB%8B%E5%91%BD%E9%A6%86%E5%A4%A7%E5%AD%A6%20ab762913b5044aaa8f17adab7f134889.html">立命馆大学</a></td><td class="cell-KJ&lt;M">信息理工学院</td><td class="cell-f_MR">客员教授</td><td class="cell-{hYk"><span class="selected-value select-value-color-red">兼职</span></td></tr><tr id="b0fa8fd8-4ab9-41d3-afcf-631e594bc756"><td class="cell-pS;&gt;"><time>@2021/09/01</time></td><td class="cell-@__q"></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E5%B7%A5%E4%BD%9C%E7%BB%8F%E5%8E%86%20c0f7a996544f4a45a7f8ffd5bf9a9026/I%20J%20Internet%20Manufacturing%20and%20Services%20b0fa8fd84ab941d3afcf631e594bc756.html">I.J. Internet Manufacturing and Services</a></td><td class="cell-KJ&lt;M"></td><td class="cell-f_MR">副编辑</td><td class="cell-{hYk"><span class="selected-value select-value-color-red">兼职</span></td></tr></tbody></table></div><figure id="98593cb6-7272-4269-89a4-36b621c9c754" class="block-color-blue_background link-to-page"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%2098593cb67272426989a436b621c9c754.html">科研项目</a></figure><div id="6398a4de-c5c1-439b-a470-0b8c9d4e9f0d" class="collection-content"><h4 class="collection-title">科研项目</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M10.8889,5.5 L3.11111,5.5 L3.11111,7.05556 L10.8889,7.05556 L10.8889,5.5 Z M12.4444,1.05556 L11.6667,1.05556 L11.6667,0 L10.1111,0 L10.1111,1.05556 L3.88889,1.05556 L3.88889,0 L2.33333,0 L2.33333,1.05556 L1.55556,1.05556 C0.692222,1.05556 0.00777777,1.75556 0.00777777,2.61111 L0,12.5 C0,13.3556 0.692222,14 1.55556,14 L12.4444,14 C13.3,14 14,13.3556 14,12.5 L14,2.61111 C14,1.75556 13.3,1.05556 12.4444,1.05556 Z M12.4444,12.5 L1.55556,12.5 L1.55556,3.94444 L12.4444,3.94444 L12.4444,12.5 Z M8.55556,8.61111 L3.11111,8.61111 L3.11111,10.1667 L8.55556,10.1667 L8.55556,8.61111 Z"></path></svg></span>开始时间</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M10.8889,5.5 L3.11111,5.5 L3.11111,7.05556 L10.8889,7.05556 L10.8889,5.5 Z M12.4444,1.05556 L11.6667,1.05556 L11.6667,0 L10.1111,0 L10.1111,1.05556 L3.88889,1.05556 L3.88889,0 L2.33333,0 L2.33333,1.05556 L1.55556,1.05556 C0.692222,1.05556 0.00777777,1.75556 0.00777777,2.61111 L0,12.5 C0,13.3556 0.692222,14 1.55556,14 L12.4444,14 C13.3,14 14,13.3556 14,12.5 L14,2.61111 C14,1.75556 13.3,1.05556 12.4444,1.05556 Z M12.4444,12.5 L1.55556,12.5 L1.55556,3.94444 L12.4444,3.94444 L12.4444,12.5 Z M8.55556,8.61111 L3.11111,8.61111 L3.11111,10.1667 L8.55556,10.1667 L8.55556,8.61111 Z"></path></svg></span>结束时间</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>项目ID</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>项目名称</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>项目类别</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>参与类别</th></tr></thead><tbody><tr id="57feb581-632c-416a-85d4-a9edc9c49a37"><td class="cell-FzVS"><time>@2021/01/01</time></td><td class="cell-qmc&gt;"><time>@2024/12/31</time></td><td class="cell-~fjl">62076053</td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%2098593cb67272426989a436b621c9c754/%E9%9D%A2%E5%90%91%E6%B0%B4%E4%B8%8B%E6%97%A0%E7%BA%BF%E5%85%89%E9%80%9A%E4%BF%A1%E7%BD%91%E7%BB%9C%E6%8E%A7%E5%88%B6%E7%9A%84%E5%A4%9A%E6%99%BA%E8%83%BD%E4%BD%93%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%B8%8E%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95%2057feb581632c416a85d4a9edc9c49a37.html">面向水下无线光通信网络控制的多智能体强化学习与组合优化方法</a></td><td class="cell-FYNN">国家自然科学基金面上项目</td><td class="cell-AjC?"><span class="selected-value select-value-color-orange">主持</span></td></tr><tr id="d5a114c3-6285-43e2-b146-62e893060a2b"><td class="cell-FzVS"><time>@2016/01/01</time></td><td class="cell-qmc&gt;"><time>@2019/12/31</time></td><td class="cell-~fjl">61572100</td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%2098593cb67272426989a436b621c9c754/%E4%B8%8D%E7%A1%AE%E5%AE%9A%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8%E7%9A%84%E6%9F%94%E6%80%A7%E8%B0%83%E5%BA%A6%E7%A0%94%E7%A9%B6%20d5a114c3628543e2b14662e893060a2b.html">不确定环境下数据驱动的柔性调度研究</a></td><td class="cell-FYNN">国家自然科学基金面上项目</td><td class="cell-AjC?"><span class="selected-value select-value-color-orange">主持</span></td></tr><tr id="99b8725c-6bf4-4dc5-b843-49ea8241a663"><td class="cell-FzVS"><time>@2022/04/01</time></td><td class="cell-qmc&gt;"><time>@2027/03/31</time></td><td class="cell-~fjl">2021YFA1003003</td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%2098593cb67272426989a436b621c9c754/%E5%9F%BA%E4%BA%8E%E5%BE%AE%E5%88%86%E5%B5%8C%E5%85%A5%E4%B8%8E%E6%9C%80%E4%BC%98%E4%BC%A0%E8%BE%93%E7%9A%84%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%96%B0%E6%A8%A1%E5%9E%8B%2099b8725c6bf44dc5b84349ea8241a663.html">基于微分嵌入与最优传输的可解释深度学习新模型</a></td><td class="cell-FYNN">科技部重大专项</td><td class="cell-AjC?"><span class="selected-value select-value-color-gray">参与</span></td></tr><tr id="8b261e40-16a0-4189-b6a0-dc6db9227122"><td class="cell-FzVS"><time>@2015/01/01</time></td><td class="cell-qmc&gt;"><time>@2018/12/31</time></td><td class="cell-~fjl">2015AA015403</td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%2098593cb67272426989a436b621c9c754/%E9%9D%A2%E5%90%91%E5%9F%BA%E7%A1%80%E6%95%99%E8%82%B2%E7%9A%84%E7%B1%BB%E4%BA%BA%E6%99%BA%E8%83%BD%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3%E4%B8%8E%E6%8E%A8%E7%90%86%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF%208b261e4016a04189b6a0dc6db9227122.html">面向基础教育的类人智能知识理解与推理关键技术</a></td><td class="cell-FYNN">国家863项目子课题</td><td class="cell-AjC?"><span class="selected-value select-value-color-gray">参与</span></td></tr><tr id="f8f0063a-372d-46e5-a250-27a286db383c"><td class="cell-FzVS"><time>@2015/09/01</time></td><td class="cell-qmc&gt;"><time>@2019/12/31</time></td><td class="cell-~fjl">ZX20150421</td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%2098593cb67272426989a436b621c9c754/%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%B1%9E%E6%80%A7%E7%9A%84%E6%A0%B7%E4%BE%8B%E9%9B%86%E9%80%89%E6%8B%A9%E4%B8%8E%E5%AD%A6%E4%B9%A0%20f8f0063a372d46e5a25027a286db383c.html">数据驱动图像处理中基于图像属性的样例集选择与学习</a></td><td class="cell-FYNN">国家自然科学基金面上项目</td><td class="cell-AjC?"><span class="selected-value select-value-color-gray">参与</span></td></tr><tr id="08267ae4-46ea-4e46-8335-91feb1f17a71"><td class="cell-FzVS"><time>@2013/01/01</time></td><td class="cell-qmc&gt;"><time>@2015/12/31</time></td><td class="cell-~fjl"></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%2098593cb67272426989a436b621c9c754/%E9%9D%A2%E5%90%91%E6%95%99%E8%82%B2%E4%BF%A1%E6%81%AF%E5%8C%96%E7%9A%84%E4%BA%91%E8%AE%A1%E7%AE%97%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6%2008267ae446ea4e46833591feb1f17a71.html">面向教育信息化的云计算关键技术研究</a></td><td class="cell-FYNN">教育部科学技术研究重大项目</td><td class="cell-AjC?"><span class="selected-value select-value-color-gray">参与</span></td></tr><tr id="a5b445b2-8ac3-4ea9-bfb1-c5e830ac8b36"><td class="cell-FzVS"><time>@2013/01/01</time></td><td class="cell-qmc&gt;"><time>@2014/12/31</time></td><td class="cell-~fjl"></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%2098593cb67272426989a436b621c9c754/%E9%9D%A2%E5%90%91%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E4%B8%9A%E5%8A%A1%E6%94%AF%E6%92%91%E7%B3%BB%E7%BB%9F%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF%E5%8F%8A%E6%96%B9%E6%A1%88%E7%A0%94%E7%A9%B6%20a5b445b28ac34ea9bfb1c5e830ac8b36.html">面向互联网的业务支撑系统关键技术及方案研究</a></td><td class="cell-FYNN">中国移动-教育部联合基金</td><td class="cell-AjC?"><span class="selected-value select-value-color-gray">参与</span></td></tr><tr id="02a27c41-2563-4167-a1fb-f1023dbaab8b"><td class="cell-FzVS"><time>@2015/01/01</time></td><td class="cell-qmc&gt;"><time>@2015/12/31</time></td><td class="cell-~fjl"></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%2098593cb67272426989a436b621c9c754/%E5%9F%8E%E5%B8%82%E7%8E%AF%E5%A2%83%E8%A7%84%E5%88%92%E5%86%B3%E7%AD%96%E7%B3%BB%E7%BB%9F%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%BC%80%E5%8F%91%2002a27c4125634167a1fbf1023dbaab8b.html">城市环境规划决策系统研究与开发</a></td><td class="cell-FYNN">一般横向</td><td class="cell-AjC?"><span class="selected-value select-value-color-gray">参与</span></td></tr><tr id="82716dbc-5f81-4413-a8de-f6b5fe5c10f5"><td class="cell-FzVS"><time>@2013/01/01</time></td><td class="cell-qmc&gt;"><time>@2013/12/31</time></td><td class="cell-~fjl"></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%2098593cb67272426989a436b621c9c754/%E8%B7%A8%E4%BA%91%E7%AB%AF%E9%AB%98%E6%80%A7%E8%83%BD%E5%A4%A7%E8%A7%84%E6%A8%A1%E5%A4%9A%E5%AA%92%E4%BD%93%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6%2082716dbc5f814413a8def6b5fe5c10f5.html">跨云端高性能大规模多媒体数据传输关键技术研究</a></td><td class="cell-FYNN">一般横向</td><td class="cell-AjC?"><span class="selected-value select-value-color-gray">参与</span></td></tr><tr id="e108d9f4-d452-464e-a2e2-c9c1f45a88cf"><td class="cell-FzVS"><time>@2007/04/01</time></td><td class="cell-qmc&gt;"><time>@2010/03/01</time></td><td class="cell-~fjl"></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%2098593cb67272426989a436b621c9c754/%E5%9F%BA%E4%BA%8E%E8%BF%9B%E5%8C%96%E7%AE%97%E6%B3%95%E7%9A%84%E4%B8%8B%E4%B8%80%E4%BB%A3%E9%80%9A%E4%BF%A1%E7%BD%91%E7%BB%9CNGN%E4%BC%98%E5%8C%96%20e108d9f4d452464ea2e2c9c1f45a88cf.html">基于进化算法的下一代通信网络NGN优化</a></td><td class="cell-FYNN">日本科学研究基金JSPS</td><td class="cell-AjC?"><span class="selected-value select-value-color-orange">主持</span></td></tr></tbody></table></div><figure id="51277732-a758-4ca9-8f54-f8032cb2178c" class="block-color-red_background link-to-page"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E6%94%B9%E9%A1%B9%E7%9B%AE%2051277732a7584ca98f54f8032cb2178c.html">教改项目</a></figure><div id="06908f62-19ce-4eee-a81d-369f125db324" class="collection-content"><h4 class="collection-title">教改项目</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M10.8889,5.5 L3.11111,5.5 L3.11111,7.05556 L10.8889,7.05556 L10.8889,5.5 Z M12.4444,1.05556 L11.6667,1.05556 L11.6667,0 L10.1111,0 L10.1111,1.05556 L3.88889,1.05556 L3.88889,0 L2.33333,0 L2.33333,1.05556 L1.55556,1.05556 C0.692222,1.05556 0.00777777,1.75556 0.00777777,2.61111 L0,12.5 C0,13.3556 0.692222,14 1.55556,14 L12.4444,14 C13.3,14 14,13.3556 14,12.5 L14,2.61111 C14,1.75556 13.3,1.05556 12.4444,1.05556 Z M12.4444,12.5 L1.55556,12.5 L1.55556,3.94444 L12.4444,3.94444 L12.4444,12.5 Z M8.55556,8.61111 L3.11111,8.61111 L3.11111,10.1667 L8.55556,10.1667 L8.55556,8.61111 Z"></path></svg></span>开始时间</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M10.8889,5.5 L3.11111,5.5 L3.11111,7.05556 L10.8889,7.05556 L10.8889,5.5 Z M12.4444,1.05556 L11.6667,1.05556 L11.6667,0 L10.1111,0 L10.1111,1.05556 L3.88889,1.05556 L3.88889,0 L2.33333,0 L2.33333,1.05556 L1.55556,1.05556 C0.692222,1.05556 0.00777777,1.75556 0.00777777,2.61111 L0,12.5 C0,13.3556 0.692222,14 1.55556,14 L12.4444,14 C13.3,14 14,13.3556 14,12.5 L14,2.61111 C14,1.75556 13.3,1.05556 12.4444,1.05556 Z M12.4444,12.5 L1.55556,12.5 L1.55556,3.94444 L12.4444,3.94444 L12.4444,12.5 Z M8.55556,8.61111 L3.11111,8.61111 L3.11111,10.1667 L8.55556,10.1667 L8.55556,8.61111 Z"></path></svg></span>结束时间</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>项目ID</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>项目名称</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>项目类别</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>级别</th></tr></thead><tbody><tr id="b1ae912f-1f60-48ff-9c27-87bb6b386d43"><td class="cell-FzVS"><time>@2014/06/01</time></td><td class="cell-qmc&gt;"><time>@2015/12/01</time></td><td class="cell-~fjl"></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E6%94%B9%E9%A1%B9%E7%9B%AE%2051277732a7584ca98f54f8032cb2178c/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%93%E4%B8%9A%E7%BB%BC%E5%90%88%E6%94%B9%E9%9D%A9%20b1ae912f1f6048ff9c2787bb6b386d43.html">软件工程专业综合改革</a></td><td class="cell-FYNN">综合改革重点建设专业</td><td class="cell-uA\S"><span class="selected-value select-value-color-purple">国家级</span></td></tr><tr id="42018f64-4b02-4cfa-b794-25110b0d1c6a"><td class="cell-FzVS"><time>@2014/06/01</time></td><td class="cell-qmc&gt;"><time>@2015/12/31</time></td><td class="cell-~fjl"></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E6%94%B9%E9%A1%B9%E7%9B%AE%2051277732a7584ca98f54f8032cb2178c/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%93%E4%B8%9A%E6%A0%A1%E4%BC%81%E5%90%88%E4%BD%9C%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5%E6%95%99%E5%AD%A6%E7%BB%BC%E5%90%88%E6%94%B9%E9%9D%A9%2042018f644b024cfab79425110b0d1c6a.html">软件工程专业校企合作工程实践教学综合改革</a></td><td class="cell-FYNN">国家综合改革重点建设专业</td><td class="cell-uA\S"><span class="selected-value select-value-color-purple">国家级</span></td></tr><tr id="241062e6-7487-4adc-9110-ce77f8731ba5"><td class="cell-FzVS"><time>@2014/11/01</time></td><td class="cell-qmc&gt;"><time>@2016/11/01</time></td><td class="cell-~fjl">UPRP20140233</td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E6%94%B9%E9%A1%B9%E7%9B%AE%2051277732a7584ca98f54f8032cb2178c/%E9%9D%A2%E5%90%91%E5%9B%BD%E9%99%85%E5%B7%A5%E7%A8%8B%E6%95%99%E8%82%B2%E4%B8%93%E4%B8%9A%E8%AE%A4%E8%AF%81%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%93%E4%B8%9A%E8%AF%BE%E5%A0%82%E5%AE%9E%E9%AA%8C%E5%AE%9E%E8%AE%AD%E4%B8%89%E4%BD%8D%E4%B8%80%E4%BD%93%E5%8C%96%E4%BA%BA%E6%89%8D%E5%9F%B9%E5%85%BB%E6%A8%A1%E5%BC%8F%20241062e674874adc9110ce77f8731ba5.html">面向国际工程教育专业认证的软件工程专业课堂实验实训三位一体化人才培养模式</a></td><td class="cell-FYNN">省教改基金项目</td><td class="cell-uA\S"><span class="selected-value select-value-color-green">省部级</span></td></tr><tr id="28fdf829-b452-432f-850a-68f83dabc076"><td class="cell-FzVS"><time>@2014/11/01</time></td><td class="cell-qmc&gt;"><time>@2016/11/01</time></td><td class="cell-~fjl"></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E6%94%B9%E9%A1%B9%E7%9B%AE%2051277732a7584ca98f54f8032cb2178c/%E9%9D%A2%E5%90%91%E5%9B%BD%E9%99%85%E5%B7%A5%E7%A8%8B%E6%95%99%E8%82%B2%E4%B8%93%E4%B8%9A%E8%AE%A4%E8%AF%81%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%93%E4%B8%9A%E8%AF%BE%E5%A0%82%E5%AE%9E%E9%AA%8C%E5%AE%9E%E8%AE%AD%E4%B8%89%E4%BD%8D%E4%B8%80%E4%BD%93%E5%8C%96%E4%BA%BA%E6%89%8D%E5%9F%B9%E5%85%BB%E6%A8%A1%E5%BC%8F%2028fdf829b452432f850a68f83dabc076.html">面向国际工程教育专业认证的软件工程专业课堂实验实训三位一体化人才培养模式</a></td><td class="cell-FYNN">辽宁省教学改革项目</td><td class="cell-uA\S"><span class="selected-value select-value-color-green">省部级</span></td></tr><tr id="373490b7-bea0-443f-b3c8-72f6e55299b4"><td class="cell-FzVS"><time>@2016/01/01</time></td><td class="cell-qmc&gt;"><time>@2017/12/31</time></td><td class="cell-~fjl"></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E6%94%B9%E9%A1%B9%E7%9B%AE%2051277732a7584ca98f54f8032cb2178c/%E2%80%9C%E5%A4%A7%E5%B7%A5-%E7%AB%8B%E5%91%BD%E9%A6%86%E5%9B%BD%E9%99%85%E4%BF%A1%E6%81%AF%E4%B8%8E%E8%BD%AF%E4%BB%B6%E5%AD%A6%E9%99%A2%E2%80%9D%E5%9B%BD%E9%99%85%E5%8C%96%E6%95%99%E5%AD%A6%E8%B5%84%E6%BA%90%E5%B9%B3%E5%8F%B0%E5%BB%BA%E8%AE%BE%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E8%B7%B5%20373490b7bea0443fb3c872f6e55299b4.html">“大工-立命馆国际信息与软件学院”国际化教学资源平台建设的研究与实践</a></td><td class="cell-FYNN">辽宁省质量工程</td><td class="cell-uA\S"><span class="selected-value select-value-color-green">省部级</span></td></tr><tr id="5c1d490e-05be-4c2a-a2bf-e5c375963149"><td class="cell-FzVS"><time>@2018/03/01</time></td><td class="cell-qmc&gt;"><time>@2019/12/30</time></td><td class="cell-~fjl">ZL201854</td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E6%94%B9%E9%A1%B9%E7%9B%AE%2051277732a7584ca98f54f8032cb2178c/%E9%9D%A2%E5%90%91%E6%96%B0%E5%B7%A5%E7%A7%91%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AD%A6%E7%A7%91%E6%A0%A1%E4%BC%81%E5%8D%8F%E5%90%8C%E8%82%B2%E4%BA%BA%E6%9C%BA%E5%88%B6%E7%A0%94%E7%A9%B6%205c1d490e05be4c2aa2bfe5c375963149.html">面向新工科的软件工程学科校企协同育人机制研究</a></td><td class="cell-FYNN">国家质量工程项目</td><td class="cell-uA\S"><span class="selected-value select-value-color-purple">国家级</span></td></tr><tr id="42f0cecf-eeb3-4ee6-8285-44e05a9c388f"><td class="cell-FzVS"><time>@2020/01/01</time></td><td class="cell-qmc&gt;"><time>@2020/12/31</time></td><td class="cell-~fjl">ZL2020017
+ </td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E6%94%B9%E9%A1%B9%E7%9B%AE%2051277732a7584ca98f54f8032cb2178c/%E2%80%9C%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E2%80%9D%E5%9B%BD%E5%AE%B6%E7%BA%A7%E4%B8%80%E6%B5%81%E4%B8%93%E4%B8%9A%E5%BB%BA%E8%AE%BE%E9%A1%B9%E7%9B%AE%2042f0cecfeeb34ee6828544e05a9c388f.html">“软件工程”国家级一流专业建设项目</a></td><td class="cell-FYNN">一流专业建设(国家级)</td><td class="cell-uA\S"><span class="selected-value select-value-color-purple">国家级</span></td></tr><tr id="34bfcd9c-2399-43e6-a5e2-b2a4159549e1"><td class="cell-FzVS"><time>@2022/01/01</time></td><td class="cell-qmc&gt;"></td><td class="cell-~fjl"></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E6%94%B9%E9%A1%B9%E7%9B%AE%2051277732a7584ca98f54f8032cb2178c/%E4%B8%AD%E6%97%A5%E5%90%88%E4%BD%9C%E5%8A%9E%E5%AD%A6%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84%E7%89%B9%E8%89%B2%E5%8C%96%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%93%E4%B8%9A%E4%BD%93%E7%B3%BB%E6%9E%84%E5%BB%BA%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E8%B7%B5%2034bfcd9c239943e6a5e2b2a4159549e1.html">中日合作办学模式下的特色化软件工程专业体系构建研究与实践</a></td><td class="cell-FYNN">辽宁省教学改革项目</td><td class="cell-uA\S"><span class="selected-value select-value-color-green">省部级</span></td></tr></tbody></table></div><figure id="0f816df5-04cd-4d16-bd07-dfcc7b5fca94" class="block-color-purple_background link-to-page"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E5%AD%A6%E8%8E%B7%E5%A5%96%200f816df504cd4d16bd07dfcc7b5fca94.html">教学获奖 </a></figure><div id="841bd1f8-8799-49ea-9ddd-9ddde5ba4b3c" class="collection-content"><h4 class="collection-title">教学获奖 </h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M10.8889,5.5 L3.11111,5.5 L3.11111,7.05556 L10.8889,7.05556 L10.8889,5.5 Z M12.4444,1.05556 L11.6667,1.05556 L11.6667,0 L10.1111,0 L10.1111,1.05556 L3.88889,1.05556 L3.88889,0 L2.33333,0 L2.33333,1.05556 L1.55556,1.05556 C0.692222,1.05556 0.00777777,1.75556 0.00777777,2.61111 L0,12.5 C0,13.3556 0.692222,14 1.55556,14 L12.4444,14 C13.3,14 14,13.3556 14,12.5 L14,2.61111 C14,1.75556 13.3,1.05556 12.4444,1.05556 Z M12.4444,12.5 L1.55556,12.5 L1.55556,3.94444 L12.4444,3.94444 L12.4444,12.5 Z M8.55556,8.61111 L3.11111,8.61111 L3.11111,10.1667 L8.55556,10.1667 L8.55556,8.61111 Z"></path></svg></span>获奖时间</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>获奖项目</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>获奖类别</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>获奖名称</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>获奖级别</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>获奖等级</th></tr></thead><tbody><tr id="179fec23-1af9-40d4-94ae-b23ab5c7a2b6"><td class="cell-E[dH"><time>@2018/03/01</time></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E5%AD%A6%E8%8E%B7%E5%A5%96%200f816df504cd4d16bd07dfcc7b5fca94/%E7%9E%84%E5%87%86%E5%9B%BD%E9%99%85%E5%B7%A5%E7%A8%8B%E6%95%99%E8%82%B2%E6%A0%87%E5%87%86%E6%9E%84%E5%BB%BA%E5%AE%98%E4%BA%A7%E5%AD%A6%E7%A0%94%E7%9B%B8%E8%9E%8D%E5%90%88%E7%9A%84%E8%BD%AF%E4%BB%B6%E4%BA%BA%E6%89%8D%E5%9F%B9%E5%85%BB%E4%BD%93%E7%B3%BB%20179fec231af940d494aeb23ab5c7a2b6.html">瞄准国际工程教育标准构建官产学研相融合的软件人才培养体系</a></td><td class="cell-ibOL"><span class="selected-value select-value-color-green">教学成果奖</span></td><td class="cell-ElGH">2017年校优秀教学成果奖</td><td class="cell-;bXB"><span class="selected-value">校级</span></td><td class="cell-Y{EB"><span class="selected-value">二等奖</span></td></tr><tr id="f7efb31e-ac39-4d20-abaf-df21803de0fc"><td class="cell-E[dH"><time>@2018/03/01</time></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E5%AD%A6%E8%8E%B7%E5%A5%96%200f816df504cd4d16bd07dfcc7b5fca94/%E4%B8%AD%E6%97%A5%E5%90%88%E4%BD%9C%E5%8A%9E%E5%AD%A6%E6%A8%A1%E5%BC%8F%E4%B8%8B%E5%9B%BD%E9%99%85%E5%8C%96%E4%BA%BA%E6%89%8D%E5%9F%B9%E5%85%BB%E4%BD%93%E7%B3%BB%E7%9A%84%E6%9E%84%E5%BB%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5%20f7efb31eac394d20abafdf21803de0fc.html">中日合作办学模式下国际化人才培养体系的构建与实践</a></td><td class="cell-ibOL"><span class="selected-value select-value-color-green">教学成果奖</span></td><td class="cell-ElGH">2017年校优秀教学成果奖</td><td class="cell-;bXB"><span class="selected-value">校级</span></td><td class="cell-Y{EB"><span class="selected-value">一等奖</span></td></tr><tr id="2134d667-db77-4921-836d-9450591d6d87"><td class="cell-E[dH"><time>@2018/12/21</time></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E5%AD%A6%E8%8E%B7%E5%A5%96%200f816df504cd4d16bd07dfcc7b5fca94/%E4%B8%AD%E6%97%A5%E5%90%88%E4%BD%9C%E5%8A%9E%E5%AD%A6%E6%A8%A1%E5%BC%8F%E4%B8%8B%E5%9B%BD%E9%99%85%E5%8C%96%E8%BD%AF%E4%BB%B6%E4%BA%BA%E6%89%8D%E5%9F%B9%E5%85%BB%E4%BD%93%E7%B3%BB%E7%9A%84%E6%9E%84%E5%BB%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5%202134d667db774921836d9450591d6d87.html">中日合作办学模式下国际化软件人才培养体系的构建与实践</a></td><td class="cell-ibOL"><span class="selected-value select-value-color-green">教学成果奖</span></td><td class="cell-ElGH">2018年国家级教学成果奖</td><td class="cell-;bXB"><span class="selected-value select-value-color-yellow">国家级</span></td><td class="cell-Y{EB"><span class="selected-value">二等奖</span></td></tr><tr id="9ac3789a-b998-4d9b-8c86-d8f94e64ef0d"><td class="cell-E[dH"><time>@2018/12/21</time></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E5%AD%A6%E8%8E%B7%E5%A5%96%200f816df504cd4d16bd07dfcc7b5fca94/%E4%B8%AD%E6%97%A5%E5%90%88%E4%BD%9C%E5%8A%9E%E5%AD%A6%E6%A8%A1%E5%BC%8F%E4%B8%8B%E5%9B%BD%E9%99%85%E5%8C%96%E8%BD%AF%E4%BB%B6%E4%BA%BA%E6%89%8D%E5%9F%B9%E5%85%BB%E4%BD%93%E7%B3%BB%E7%9A%84%E6%9E%84%E5%BB%BA%E4%B8%8E%E5%AE%9E%E8%B7%B5%209ac3789ab9984d9b8c86d8f94e64ef0d.html">中日合作办学模式下国际化软件人才培养体系的构建与实践</a></td><td class="cell-ibOL"><span class="selected-value select-value-color-green">教学成果奖</span></td><td class="cell-ElGH">2018年省级教学成果奖</td><td class="cell-;bXB"><span class="selected-value select-value-color-brown">省部级</span></td><td class="cell-Y{EB"><span class="selected-value">一等奖</span></td></tr><tr id="b4271186-d2b8-4cff-99f4-aeb978d3ea59"><td class="cell-E[dH"><time>@2020/09/10</time></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E5%AD%A6%E8%8E%B7%E5%A5%96%200f816df504cd4d16bd07dfcc7b5fca94/%E2%80%9C%E4%B8%80%E4%BD%93%E4%B8%A4%E7%BF%BC%E5%9B%9B%E5%BC%95%E6%93%8E%E2%80%9D%E5%88%9B%E6%96%B0%E5%9E%8B%E8%BD%AF%E4%BB%B6%E4%BA%BA%E6%89%8D%E5%9F%B9%E5%85%BB%E6%A8%A1%E5%BC%8F%E6%8E%A2%E7%B4%A2%20b4271186d2b84cff99f4aeb978d3ea59.html">“一体两翼四引擎”创新型软件人才培养模式探索</a></td><td class="cell-ibOL"><span class="selected-value select-value-color-green">教学成果奖</span></td><td class="cell-ElGH">大连理工大学优秀教学成果奖</td><td class="cell-;bXB"><span class="selected-value">校级</span></td><td class="cell-Y{EB"><span class="selected-value">三等奖</span></td></tr><tr id="65d43b68-7e57-4bc3-a4c1-7c51a864e436"><td class="cell-E[dH"><time>@2022/02/28</time></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E5%AD%A6%E8%8E%B7%E5%A5%96%200f816df504cd4d16bd07dfcc7b5fca94/%E8%89%BA%E5%B7%A5%E8%9E%8D%E5%90%88%E5%88%9B%E6%96%B0%E5%85%B1%E5%BB%BA%E5%85%B1%E4%BA%AB%E6%9C%BA%E5%88%B6%2065d43b687e574bc3a4c17c51a864e436.html">艺工融合创新共建共享机制</a></td><td class="cell-ibOL"><span class="selected-value select-value-color-green">教学成果奖</span></td><td class="cell-ElGH">大连理工大学优秀教学成果二等奖</td><td class="cell-;bXB"><span class="selected-value">校级</span></td><td class="cell-Y{EB"><span class="selected-value">二等奖</span></td></tr><tr id="680c94d4-db6f-46e2-84e6-42f121388823"><td class="cell-E[dH"><time>@2022/03/01</time></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E5%AD%A6%E8%8E%B7%E5%A5%96%200f816df504cd4d16bd07dfcc7b5fca94/%E8%89%BA%E5%B7%A5%E8%9E%8D%E5%90%88%E5%88%9B%E6%96%B0%E6%95%99%E5%AD%A6%E4%BD%93%E7%B3%BB%E6%94%B9%E9%9D%A9%E4%B8%8E%E5%AE%9E%E8%B7%B5%20680c94d4db6f46e284e642f121388823.html">艺工融合创新教学体系改革与实践</a></td><td class="cell-ibOL"><span class="selected-value select-value-color-green">教学成果奖</span></td><td class="cell-ElGH">辽宁省教学成果奖</td><td class="cell-;bXB"><span class="selected-value select-value-color-brown">省部级</span></td><td class="cell-Y{EB"><span class="selected-value">二等奖</span></td></tr><tr id="020de12e-def5-4d91-b238-61b8d2d8c08f"><td class="cell-E[dH"></td><td class="cell-title"><a href="%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%201f58cdc6063c421d9259a3f9c09c719a/%E6%95%99%E5%AD%A6%E8%8E%B7%E5%A5%96%200f816df504cd4d16bd07dfcc7b5fca94/Untitled%20020de12edef54d91b23861b8d2d8c08f.html">Untitled</a></td><td class="cell-ibOL"></td><td class="cell-ElGH"></td><td class="cell-;bXB"></td><td class="cell-Y{EB"></td></tr></tbody></table></div><p id="abb46f85-33a7-40e4-8f37-e44cb23fe7ad" class="">
+</p></div></article></body></html>

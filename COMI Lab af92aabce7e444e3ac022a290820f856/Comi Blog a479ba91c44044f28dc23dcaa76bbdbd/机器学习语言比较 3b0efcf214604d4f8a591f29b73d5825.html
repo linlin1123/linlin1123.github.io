@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>机器学习语言比较</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3b0efcf2-1460-4d4f-8a59-1f29b73d5825" class="page sans"><header><h1 class="page-title">机器学习语言比较</h1></header><div class="page-body"><h2 id="3ef81e46-1fc2-40c1-b8de-ba3970497607" class="">编程语言 —— C++ vs python</h2><h3 id="c28c1e0e-3f43-417f-ae89-171ca8bd2415" class="">1. 适用场景</h3><ul id="1af2a7d1-753e-413a-9438-35d07d7237be" class="bulleted-list"><li style="list-style-type:disc">C++<ul id="5733caad-3ddd-4379-b938-fbf9b0a83cf2" class="bulleted-list"><li style="list-style-type:circle">速度快，适用于<strong>implement algorithms from scratch</strong> ，即实现具体算法</li></ul></li></ul><ul id="a80b0f17-3047-4a78-a176-fea8e2b66301" class="bulleted-list"><li style="list-style-type:disc">python<ul id="8cf6c20a-4c12-45cb-bb2d-53d695366f75" class="bulleted-list"><li style="list-style-type:circle">迭代快，适用于抛弃底层，对machine learning本身的模型进行学习，适用于<strong>machine learning user</strong></li></ul></li></ul><h3 id="edb30576-e68f-4688-920a-4d1af7fd90ef" class="">2. 数据计算库</h3><ul id="0634f817-cbe3-4ff3-85f1-96ef418d7332" class="bulleted-list"><li style="list-style-type:disc">C++<ul id="91aa1b27-bc5a-485a-af51-f07c65a100fc" class="bulleted-list"><li style="list-style-type:circle"><strong>Eigen</strong><ul id="8230b9d6-34c3-4d1b-a9b9-7de49a0d75ae" class="bulleted-list"><li style="list-style-type:square">速度快（相等情况下，numpy跑<strong>29s</strong> ，Eigen只要<strong>0.6s</strong>）</li></ul><ul id="3bf3129d-3960-4173-bf5e-d207e4cd93f9" class="bulleted-list"><li style="list-style-type:square">文档资料丰富</li></ul><ul id="71e21026-7360-4ebc-9c9c-8067d89f7ecc" class="bulleted-list"><li style="list-style-type:square">不依赖其他库</li></ul><ul id="19362d68-fb51-4e9f-819d-870584a5e536" class="bulleted-list"><li style="list-style-type:square">矢量化SSE指令（可结合硬件编程）</li></ul></li></ul><ul id="5e79bc0d-1d16-4f9e-9148-0869c7984d6e" class="bulleted-list"><li style="list-style-type:circle"><strong>Armadillo</strong><ul id="3058729d-2b97-47c1-aae4-9fc210517c5b" class="bulleted-list"><li style="list-style-type:square">矩阵类型以及矩阵函数丰富</li></ul><ul id="7365186e-5343-4222-ad57-44432a73cfca" class="bulleted-list"><li style="list-style-type:square">封装好，对用户更友好</li></ul><ul id="dd6bd39d-45ca-4cc5-af37-21cea0f925d3" class="bulleted-list"><li style="list-style-type:square">最终速度，由Armadillo+其他数据库的组合而定</li></ul><ul id="e62e7691-f969-4ab9-be15-ce70891564c5" class="bulleted-list"><li style="list-style-type:square"><strong>Armadillo+OpenBLAS</strong> 的组合比Eigen快，可优化了inter CPU计算</li></ul></li></ul></li></ul><ul id="60669e0d-f280-4204-a9b5-47d40f3390a3" class="bulleted-list"><li style="list-style-type:disc">python<ul id="42274699-a39a-43c9-88d1-9ed84afbabec" class="bulleted-list"><li style="list-style-type:circle"><strong>numpy</strong><ul id="7a135901-377b-40b5-8f2f-58c3b778b0da" class="bulleted-list"><li style="list-style-type:square">操作矩阵运算很方便，对用户友好</li></ul><ul id="2750b6bc-74a3-495c-921d-3c0b0e264c96" class="bulleted-list"><li style="list-style-type:square">速度不及C++的计算库</li></ul></li></ul></li></ul><h3 id="ba13e362-b779-4cd2-a980-29964f27c0dc" class="">3. 机器学习库</h3><ul id="72965774-cc73-4dcc-b115-2ee7a51ee098" class="bulleted-list"><li style="list-style-type:disc">C++<ul id="cc2244a3-af90-4a47-88ca-80ee72e35b1c" class="bulleted-list"><li style="list-style-type:circle"><strong>mlpack</strong><ul id="9f5d3e15-187a-4a3e-a9f9-b3e2734b5577" class="bulleted-list"><li style="list-style-type:square"><a href="http://www.mlpack.org/">http://www.mlpack.org/</a></li></ul></li></ul><ul id="5be776d2-ac07-4190-8793-3e6d97913a54" class="bulleted-list"><li style="list-style-type:circle"><strong>shark ML library</strong><ul id="2fae51f7-66ac-4200-8431-2b3b2bd9de7a" class="bulleted-list"><li style="list-style-type:square"><a href="http://image.diku.dk/shark/">http://image.diku.dk/shark/</a></li></ul></li></ul><ul id="fb42c6df-2b5b-40f9-9cc0-4d1c6dda78db" class="bulleted-list"><li style="list-style-type:circle"><strong>dlib</strong><ul id="1b989021-c649-4ffd-bb6f-6b44960601fb" class="bulleted-list"><li style="list-style-type:square"><a href="http://dlib.net/">http://dlib.net/</a></li></ul></li></ul><ul id="e1d2f5f8-c7ed-4c08-9aab-55d63ffae700" class="bulleted-list"><li style="list-style-type:circle">特点<ul id="d47b785a-00c4-4555-a4f8-4e014728e2d0" class="bulleted-list"><li style="list-style-type:square">提供机器学习的基本算法：K-means，SVM，多层perceptron，PCA，deep learning等，详情可见官网docs</li></ul><ul id="6c15b5a9-3924-48a5-8ee5-c83c488cb641" class="bulleted-list"><li style="list-style-type:square">三种库褒贬不一，根据具体情况进行选择</li></ul></li></ul></li></ul><ul id="d08ad5fc-5768-408a-b5c5-fcf9e16ee98d" class="bulleted-list"><li style="list-style-type:disc">python<ul id="6a2c0b1d-7f39-41c7-a5ad-296aa1a1fdb3" class="bulleted-list"><li style="list-style-type:circle"><strong>scikit-learn</strong><ul id="18ece40a-df4b-41b9-b29e-8f62acf0c711" class="bulleted-list"><li style="list-style-type:square">拥有大量的数据挖掘和数据分析功能</li></ul><ul id="88899ffe-d6ed-4ba0-990c-61fcb8fa7737" class="bulleted-list"><li style="list-style-type:square">支持的机器学习算法相较于C++的库更强大</li></ul></li></ul><ul id="e231dc50-6209-4c84-95e3-10a7174bfc18" class="bulleted-list"><li style="list-style-type:circle"><strong>Theano</strong><ul id="dbc7ef1a-2323-4314-8daa-5211a0173335" class="bulleted-list"><li style="list-style-type:square">支持CPU / GPU运算</li></ul><ul id="b4080308-5c3b-4934-911f-ebe719ec931d" class="bulleted-list"><li style="list-style-type:square">只支持python接口</li></ul><ul id="72cf152c-c515-4186-a24a-9918abaf167b" class="bulleted-list"><li style="list-style-type:square">整个代码库都是python的，难以调试、重构和维护</li></ul><ul id="4a0b4e55-a95e-437d-adf2-3da63e035cf8" class="bulleted-list"><li style="list-style-type:square">支持大部分先进的网络，符号API支持循环控制，让RNN的实现更加容易简洁</li></ul></li></ul></li></ul><h3 id="5f5c79cc-1dd3-428f-bee7-727e6c2ad8e1" class="">4. 其他比较</h3><ul id="e47f03fb-0006-4709-b672-7b852e9f20a0" class="bulleted-list"><li style="list-style-type:disc"><strong>效率</strong><ul id="cbd49732-4ebc-4256-9967-fb1a67d34f75" class="bulleted-list"><li style="list-style-type:circle">C++效率高，Tensorflow以及Torch的底层实现都是C++</li></ul></li></ul><ul id="dcc22a8c-0f0c-4d6c-8fc2-904ff1fc6a09" class="bulleted-list"><li style="list-style-type:disc"><strong>适用的机器学习方向</strong><ul id="8f61aae6-5a45-45be-89e0-a103f77aa202" class="bulleted-list"><li style="list-style-type:circle">C++<ul id="fa33aba9-aaff-4b0a-a873-4606592b0924" class="bulleted-list"><li style="list-style-type:square">deep learning</li></ul><ul id="4c8c9873-e74a-4b50-b460-da0eccb5bdab" class="bulleted-list"><li style="list-style-type:square">computer vision</li></ul><ul id="f84f93a8-1a3e-4cf1-90be-17ceaa1fcbf1" class="bulleted-list"><li style="list-style-type:square">序列分析</li></ul><ul id="b14dd152-8ea1-414d-b393-00930f871f0f" class="bulleted-list"><li style="list-style-type:square">手势识别</li></ul><ul id="8d2d7c3d-8bbd-44eb-ae62-e21876bfd3ab" class="bulleted-list"><li style="list-style-type:square">通用机器学习</li></ul><ul id="df2f768c-f48a-49a2-8ceb-f4fd8e467b57" class="bulleted-list"><li style="list-style-type:square">自然语言处理</li></ul></li></ul><ul id="abe1a2f0-eb3a-4979-b959-8ca4f193764b" class="bulleted-list"><li style="list-style-type:circle">python<ul id="75adfb41-345e-47e9-a263-66f632594c78" class="bulleted-list"><li style="list-style-type:square">data analytics（譬如预测走势或推荐算法）</li></ul><ul id="b680f2e8-0739-464f-9876-0b2f9fd53b4d" class="bulleted-list"><li style="list-style-type:square">data mining</li></ul><ul id="553b3583-f019-4109-98ee-39a8669a1ffb" class="bulleted-list"><li style="list-style-type:square">通用机器学习</li></ul><ul id="1ca0d36f-d363-4acc-aab4-13bf5b824955" class="bulleted-list"><li style="list-style-type:square">自然语言处理</li></ul></li></ul><ul id="c2f40160-f2c0-40d4-9300-18d7119f8b4d" class="bulleted-list"><li style="list-style-type:circle">各语言侧重性目录<ul id="717370ae-4db9-45ee-b239-4b38fd3eb62f" class="bulleted-list"><li style="list-style-type:square"><a href="https://yq.aliyun.com/articles/43089?utm_content=m_29956">https://yq.aliyun.com/articles/43089?utm_content=m_29956</a></li></ul></li></ul></li></ul><ul id="8842349f-abaa-465f-9d15-28700673c5d0" class="bulleted-list"><li style="list-style-type:disc"><strong>支持</strong><ul id="b3399d18-fffc-417b-8e2b-9c65313ff79f" class="bulleted-list"><li style="list-style-type:circle">python库较多，且社区支持更好</li></ul></li></ul><ul id="f704f00a-9361-4517-9fbc-5a1533827b78" class="bulleted-list"><li style="list-style-type:disc"><strong>数据处理</strong><ul id="be2307a4-2ae5-4c4c-ab65-05468b58db72" class="bulleted-list"><li style="list-style-type:circle">在数据获取、处理、展示等方面，python均强于C++</li></ul></li></ul><h3 id="82851ec3-dbf5-49d3-83d3-3545baab7783" class="">5. 总结</h3><ul id="a6dfe959-f617-4ba8-be47-71b32c275e6f" class="bulleted-list"><li style="list-style-type:disc"><strong>选择参考</strong><ul id="8b0f6527-59e9-4dcb-b495-891dfcd9ab35" class="bulleted-list"><li style="list-style-type:circle">若是针对<strong>Machine Learning本身</strong> 的使用，应选择<strong>python</strong><ul id="b9aab025-b048-490d-a421-81c4e4c5e5fc" class="bulleted-list"><li style="list-style-type:square">机器学习算法方面有很多现成库</li></ul><ul id="c3eb60da-8aeb-407e-bd51-0404fdc307f1" class="bulleted-list"><li style="list-style-type:square">数据处理方便</li></ul><ul id="17dcf989-55db-47cb-ba88-2015f9b7ee2b" class="bulleted-list"><li style="list-style-type:square">编程学习成本低</li></ul></li></ul><ul id="a10b9a7a-20ef-4efa-8aef-b105bf6ccdb5" class="bulleted-list"><li style="list-style-type:circle">若是针对要<strong>实现或改进机器学习具体算法</strong> 的情况，应选择<strong>C++</strong><ul id="29a659a6-cf9a-4aaa-949a-67ff206a3507" class="bulleted-list"><li style="list-style-type:square">效率高</li></ul><ul id="a50175f8-6e43-476c-b6e9-390764283396" class="bulleted-list"><li style="list-style-type:square">更好地了解算法的实现，有助于机器学习模型参数的选择，以及模型的生成</li></ul></li></ul></li></ul><ul id="e6989158-7c09-46d8-8818-cc4888d8f384" class="bulleted-list"><li style="list-style-type:disc"><strong>折中做法</strong><ul id="8aaf9c99-52b2-4d16-89d6-44a8e035acc1" class="bulleted-list"><li style="list-style-type:circle">python进行prototype<ul id="0ed2b331-6e96-4562-a899-a6691e98e6cf" class="bulleted-list"><li style="list-style-type:square">利用python编码简单易于迭代且库多的优势，先在平台上生成可用的机器学习模型原型</li></ul></li></ul><ul id="a15381aa-2a1a-4f76-969b-65be6b5921f9" class="bulleted-list"><li style="list-style-type:circle">C++实现产品<ul id="95067f81-36dd-4aba-a813-bb8524f42ee7" class="bulleted-list"><li style="list-style-type:square">借助C++效率高的优势，将在python中选择的模型，用C++进行编程实现，形成最终的产品</li></ul></li></ul></li></ul></div></article></body></html>
